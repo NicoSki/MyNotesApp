@@ -30,7 +30,7 @@ app.set("view engine", "ejs");
 app.use(cors("*"));
 app.use(morgan("tiny"));
 app.use(session({
-    secret: config.secret,
+    secret: "MyNoteAppAsADeveloper",
     resave: false,
     saveUninitialized: false
 }));
