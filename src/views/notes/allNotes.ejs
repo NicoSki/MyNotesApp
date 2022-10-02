@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyNotesApp</title>
+
+  <!-- BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+  <!-- CSS STYLES -->
+  <link rel="stylesheet" href="../css/main.css">
+
+</head>
+
+<%- include("../navbar") %> 
+
+<% if(response.length> 0){ %>
+
+  <% if(success_msg.length > 0){ %>
+    <div class="container text-center alert alert-success alert-dismissible fade show" role="alert">
+      <%= success_msg %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% } %>
+
+  <% if(error_msg.length > 0){ %>
+    <div class="container text-center alert alert-danger alert-dismissible fade show" role="alert">
+      <%= error_msg %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% } %>
+
+  <% if(warning_msg.length > 0){ %>
+    <div class="container text-center alert alert-warning alert-dismissible fade show" role="alert">
+      <%= warning_msg %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% } %>
+
+      <div class="container text-center mt-4">
+        <div class="row row-cols-12 row-cols-lg-4 g-2 g-lg-3">
+
+          <% response.forEach(function(e){%>
+            <div class="col">
+              <div class="p-3">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title d-flex justify-content-between align-items-center">
+                      <%=e.title %> <a href="/allNotes/editNote/<%=e._id %>"><i class="fas fa-edit"></i></a>
+                    </h4>
+                    <hr>
+                    <p>
+                      <%=e.description%>
+                    </p>
+                    <a href="/allNotes/deleteNote/<%=e._id %>">
+                      <button type="button" class="btn btn-danger btn-block btn-sm" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        Delete
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+
+        </div>
+      </div>
+
+
+      <% }else{ %>
+        <div class="col-md-4 mx-auto mt-4 text-center">
+          <div class="card mx-auto">
+            <div class="card-body">
+              <h1>Hello <%=user.nickname %></h1>
+              <p>You Have not Added Any Note Yet</p>
+              <a href="/allNotes/newNote" class="btn btn-dark btn-block">Create One!</a>
+            </div>
+          </div>
+        </div>
+
+        <% } %>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</html>

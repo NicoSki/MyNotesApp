@@ -1,0 +1,38 @@
+<%- layout("layouts/index.ejs") %>
+
+<% if(error_msg.length > 0){ %>
+    <div class="container text-center alert alert-danger alert-dismissible fade show" role="alert">
+      <%= error_msg %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% } %>
+
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card mt-5 bg-black text-white rounded">
+                <div class="card-header text-center pt-5">
+                    <h1 class="h4 text-white">LOG IN</h1>
+                </div>
+                <div class="card-body">
+                    <form action="/login" method="POST">
+                        <div class="mb-3">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control bg-dark text-white" name="email" placeholder="Example@gmail.com"
+                                autofocus required/>
+                        </div>
+            
+                        <div class="mb-3">
+                            <label for="passsword">Password:</label>
+                            <input type="password" class="form-control bg-dark text-white" name="password"
+                                placeholder="Password" required/>
+                        </div>
+                        <button class="btn btn-primary w-100" type="submit">
+                            Log In
+                        </button>
+                    </form>
+                </div>
+
+                <p class="text-center">Don´t You Have An Account? <a href="/signin" class="text-info">Register</a></p>
+            </div>
+        </div>
+    </div>

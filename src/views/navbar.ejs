@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<div class="d-flex justify-content-between m-4 bg-warning fs-3">
+    <% if(user) {%>
+       
+            <a href="/allNotes" class="text-decoration-none text-dark">NOTES</a>
+            <a href="/allNotes/newNote" class="text-decoration-none text-dark">NEW NOTE📃</a>
+            <a href="/logout" class="text-decoration-none text-dark">LOG OUT</a>
+      
+        <% }else{ %> 
+    <div>
+        <a href="/" class="text-decoration-none text-dark m-2">UOrganization</a>
+        <a href="/about" class="text-decoration-none text-dark m-2">ABOUT</a>
+    </div>
+    <div>
+        <a href="/login" class="text-decoration-none text-dark m-2">LOGIN</a>
+        <a href="/signin" class="text-decoration-none text-dark m-2">SIGNIN</a>
+    </div>
+    <% } %> 
+</div>
+
+</html>
