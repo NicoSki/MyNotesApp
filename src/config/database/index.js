@@ -4,7 +4,7 @@ let { db_credential_mongo } = require("../index");
 
  async function connection()  {
     try {
-        await mongoose.connect("mongodb+srv://mongo:MkUdgvTKYfjQvD5vL64p@containers-us-west-17.railway.app:6670", {
+        await mongoose.connect("mongodb+srv://mongo:3vBPVa2ttmr878pHeZwl@containers-us-west-120.railway.app:6253", {
             useUnifiedTopology: true,
             useNewUrlParser: true,
         });
