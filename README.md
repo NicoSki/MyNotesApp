@@ -39,4 +39,3 @@
         <li>Once open, copy the following code: git clone https://github.com/NicoSki/MyNotesApp.git</li>
     </ol>
  <h1>Ta... Taaan. You got it!🎉</h1>
-<h3>*Deploy: <a href="https://mynotesapp2.herokuapp.com/" target="_blank">Try the app!</a></h3>
